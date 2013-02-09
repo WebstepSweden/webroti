@@ -16,11 +16,11 @@ public class HelloWorldTest {
 
     @Before
     public void before() {
-        testedObject = new HelloWorld("webroti");
+        testedObject = new HelloWorld();
     }
 
     @Test
     public void getName() throws Exception {
-        Assert.assertEquals("webroti", testedObject.getName());
+        Assert.assertEquals("Hello World", testedObject.getName());
     }
 }
