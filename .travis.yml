@@ -3,3 +3,22 @@ language: java
 branches:
   only:
     - master
+
+after_script:
+  # Install the Heroku gem (or the Heroku toolbelt)
+  - gem install heroku
+  # Add your Heroku git repo:
+  - git remote add heroku git@heroku.com:webroti.git
+  # Add your Heroku API key:
+  - export HEROKU_API_KEY=11624cae-9c09-4310-ab2b-09249fad73f3
+  # Turn off warnings about SSH keys:
+  - echo "Host heroku.com" >> ~/.ssh/config
+  - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+  - echo "   CheckHostIP no" >> ~/.ssh/config
+  - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+  # Clear your current Heroku SSH keys:
+  - heroku keys:clear
+  # Add a new SSH key to Heroku
+  - yes | heroku keys:add
+  # Push to Heroku!
+  - yes | git push heroku master
