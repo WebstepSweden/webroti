@@ -21,6 +21,6 @@ public class HelloWorldTest {
 
     @Test
     public void getName() throws Exception {
-        Assert.assertEquals("Hello World", testedObject.getName());
+        Assert.assertEquals("Hello World 2", testedObject.getName());
     }
 }
