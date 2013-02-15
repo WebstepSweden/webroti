@@ -27,6 +27,20 @@ body {
     padding-top: 5em;
 }
 
+.full-width {
+    width: 100%;
+}
+
+.block {
+    display: block;
+}
+
+.vote-value {
+    font-size: 5em;
+    line-height: 150%;
+    text-align: center;
+}
+
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection declarations have to be separate.

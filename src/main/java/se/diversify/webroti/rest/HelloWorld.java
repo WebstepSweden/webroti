@@ -1,7 +1,8 @@
-package se.diversify.webroti;
+package se.diversify.webroti.rest;
 
-import org.restlet.resource.Get;
-import org.restlet.resource.ServerResource;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 
 /**
  * Just a Hello World to see if the REST service works
@@ -11,14 +12,16 @@ import org.restlet.resource.ServerResource;
  * @author Daniel Valfridsson (daniel@valfridsson.net)
  * @version 1.0
  */
-public class HelloWorld extends ServerResource {
+@Path("/helloworld")
+public class HelloWorld {
     
     private final String name = "Hello World";
     
     public HelloWorld() {
     }
 
-    @Get("json")
+    @GET
+    @Produces("text/plain")
     public String getName() {
         return name;
     }

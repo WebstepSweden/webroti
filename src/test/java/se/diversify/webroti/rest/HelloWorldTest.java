@@ -1,4 +1,4 @@
-package se.diversify.webroti;
+package se.diversify.webroti.rest;
 
 
 import junit.framework.Assert;

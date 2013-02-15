@@ -1,24 +1,25 @@
 package se.diversify.webroti.rest;
 
-import org.restlet.Application;
-import org.restlet.Restlet;
-import org.restlet.routing.Router;
-import se.diversify.webroti.HelloWorld;
+import javax.ws.rs.core.Application;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * This class mapps the namespace to the right implementation
- *
  * @author dvalfrid
  * @version 1.0
  */
-public class RestRouter extends Application{
+public class RestRouter  extends Application {
 
-
-    // someone was here.....
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public Restlet createInboundRoot() {
-        Router router = new Router(getContext());
-        router.attach("/test", HelloWorld.class);
-        return router;
+    public Set<Class<?>> getClasses() {
+        Set<Class<?>> classes = new HashSet<Class<?>>();
+        classes.add(HelloWorld.class);
+        classes.add(MeetingResource.class);
+        classes.add(VoteResource.class);
+
+        return classes;
     }
 }
