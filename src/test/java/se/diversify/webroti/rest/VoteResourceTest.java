@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import se.diversify.webroti.data.Meeting;
 import se.diversify.webroti.data.Repository;
+import se.diversify.webroti.rest.vo.AddVoteVO;
 
 public class VoteResourceTest {
 
@@ -21,7 +22,8 @@ public class VoteResourceTest {
 
 	@Test
 	public void testOk() {
-		Response response = new VoteResource().vote(meeting.getId(), "4.5");
+		AddVoteVO vo = new AddVoteVO(4.5, meeting.getId());
+		Response response = new VoteResource().vote(vo);
 		assertEquals(200, response.getStatus());
 		assertNull(response.getEntity());
 	}
@@ -29,7 +31,8 @@ public class VoteResourceTest {
 
 	@Test
 	public void testWrongMeetingId() {
-		Response response = new VoteResource().vote("apa", "4.5");
+		AddVoteVO vo = new AddVoteVO(4.5, "apa");
+		Response response = new VoteResource().vote(vo);
 		assertEquals(200, response.getStatus());
 		assertEquals("Meeting with id apa can not be found", response.getEntity());
 	}
