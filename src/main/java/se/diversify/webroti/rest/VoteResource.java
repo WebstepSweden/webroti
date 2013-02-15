@@ -27,7 +27,7 @@ public class VoteResource {
 			return Response.ok().build();
 		}
 		catch( Exception e ){
-			// Kan kastas från Repository
+			// Kan kastas fran Repository
 			errorMsg  = e.getMessage();
 		}
 		return Response.ok(errorMsg).build();  // TODO: Felmeddelande?
