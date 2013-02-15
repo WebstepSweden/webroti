@@ -9,7 +9,7 @@ import java.util.UUID;
  */
 public class Meeting {
 
-    private String id;
+    private final String id;
     private List<Vote> votes = new ArrayList<Vote>();
 
     /**
@@ -24,7 +24,9 @@ public class Meeting {
      * @return the list of votes for this meeting
      */
     public List<Vote> getVotes() {
-        return new ArrayList<Vote>(votes);
+        synchronized (votes){
+            return new ArrayList<Vote>(votes);
+        }
     }
 
     /**
@@ -40,7 +42,9 @@ public class Meeting {
      * @param vote the new vote to add
      */
     public void addVote(Vote vote) {
-        votes.add(vote);
+        synchronized (votes){
+            votes.add(vote);
+        }
     }
 
 }
