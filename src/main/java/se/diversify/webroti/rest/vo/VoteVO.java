@@ -6,7 +6,7 @@ package se.diversify.webroti.rest.vo;
  */
 public class VoteVO {
     private final Double value;
-
+    
     public VoteVO(Double value){
         this.value = value;
     }
@@ -14,4 +14,5 @@ public class VoteVO {
     public Double getValue() {
         return value;
     }
+
 }
