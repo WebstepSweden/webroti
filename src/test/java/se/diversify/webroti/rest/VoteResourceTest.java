@@ -7,6 +7,8 @@ import javax.ws.rs.core.Response;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.google.gson.Gson;
+
 import se.diversify.webroti.data.Meeting;
 import se.diversify.webroti.data.Repository;
 import se.diversify.webroti.rest.vo.AddVoteVO;
@@ -23,7 +25,7 @@ public class VoteResourceTest {
 	@Test
 	public void testOk() {
 		AddVoteVO vo = new AddVoteVO(4.5, meeting.getId());
-		Response response = new VoteResource().vote(vo);
+		Response response = new VoteResource().vote(toJson(vo));
 		assertEquals(200, response.getStatus());
 		assertNull(response.getEntity());
 	}
@@ -32,9 +34,12 @@ public class VoteResourceTest {
 	@Test
 	public void testWrongMeetingId() {
 		AddVoteVO vo = new AddVoteVO(4.5, "apa");
-		Response response = new VoteResource().vote(vo);
+		Response response = new VoteResource().vote(toJson(vo));
 		assertEquals(200, response.getStatus());
 		assertEquals("Meeting with id apa can not be found", response.getEntity());
 	}
 
+	private String toJson(AddVoteVO vo){
+		return new Gson().toJson(vo);
+	}
 }
