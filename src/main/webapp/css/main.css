@@ -66,6 +66,10 @@ div.margin-large {
     margin: 3em 2em;
 }
 
+p.margin-large {
+    margin: 3em 1em;
+}
+
 input[type='range'] {
     -webkit-appearance: none;
     /*background-color: gray;*/
