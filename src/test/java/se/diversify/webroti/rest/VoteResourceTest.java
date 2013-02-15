@@ -28,6 +28,10 @@ public class VoteResourceTest {
 		Response response = new VoteResource().vote(toJson(vo));
 		assertEquals(200, response.getStatus());
 		assertNull(response.getEntity());
+		Meeting meet = Repository.getMeeting(meeting.getId());
+		assertNotNull(meet);
+		assertEquals(1, meet.getVotes().size());
+		assertEquals(4.5d, meet.getVotes().get(0).getValue(), 0.0);
 	}
 
 
