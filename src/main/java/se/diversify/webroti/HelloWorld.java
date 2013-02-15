@@ -6,6 +6,8 @@ import org.restlet.resource.ServerResource;
 /**
  * Just a Hello World to see if the REST service works
  *
+ * A comment
+ *
  * @author Daniel Valfridsson (daniel@valfridsson.net)
  * @version 1.0
  */
