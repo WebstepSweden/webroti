@@ -10,7 +10,7 @@ import org.junit.Test;
 public class MeetingTest {
     @Test
     public void testGetAverage() throws Exception {
-        Meeting meeting = Meeting.getBuilder().id("10").add(new Vote(1.0)).add(new Vote(3.0)).build();
+        MeetingVO meeting = MeetingVO.getBuilder().id("10").add(new VoteVO(1.0)).add(new VoteVO(3.0)).build();
         Assert.assertEquals(2.0, meeting.getAverage());
     }
 }

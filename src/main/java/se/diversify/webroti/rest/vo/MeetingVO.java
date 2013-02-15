@@ -7,11 +7,11 @@ import java.util.List;
  * @author dvalfrid
  * @version 1.0
  */
-public class Meeting {
+public class MeetingVO {
     private final String id;
-    private final List<Vote> votes;
+    private final List<VoteVO> votes;
 
-    private Meeting(BuilderImp builder) {
+    private MeetingVO(BuilderImp builder) {
         this.id = builder.id;
         this.votes = builder.votes;
     }
@@ -20,13 +20,13 @@ public class Meeting {
         return id;
     }
 
-    public List<Vote> getVotes() {
+    public List<VoteVO> getVotes() {
         return votes;
     }
 
     public Double getAverage() {
         double sum = 0.0;
-        for(Vote vote : votes){
+        for(VoteVO vote : votes){
             sum += vote.getValue();
         }
         return sum / votes.size();
@@ -42,7 +42,7 @@ public class Meeting {
 
     private static class BuilderImp implements Builder {
         private String id;
-        private List<Vote> votes = new ArrayList<Vote>();
+        private List<VoteVO> votes = new ArrayList<VoteVO>();
 
         @Override
         public Builder id(String value) {
@@ -51,14 +51,14 @@ public class Meeting {
         }
 
         @Override
-        public Builder add(Vote value) {
+        public Builder add(VoteVO value) {
            this.votes.add(value);
            return this;
         }
 
         @Override
-        public Meeting build() {
-            return new Meeting(this);
+        public MeetingVO build() {
+            return new MeetingVO(this);
         }
 
 
@@ -66,8 +66,8 @@ public class Meeting {
 
     public interface Builder {
         Builder id(String value);
-        Builder add(Vote value);
-        Meeting build();
+        Builder add(VoteVO value);
+        MeetingVO build();
     }
 
 }
