@@ -8,7 +8,7 @@ import java.util.List;
  * @version 1.0
  */
 public class Meeting {
-    private final Long id;
+    private final String id;
     private final List<Vote> votes;
 
     private Meeting(BuilderImp builder) {
@@ -16,7 +16,7 @@ public class Meeting {
         this.votes = builder.votes;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -41,11 +41,11 @@ public class Meeting {
     }
 
     private static class BuilderImp implements Builder {
-        private Long id;
+        private String id;
         private List<Vote> votes = new ArrayList<Vote>();
 
         @Override
-        public Builder id(Long value) {
+        public Builder id(String value) {
             this.id = value;
             return this;
         }
@@ -65,7 +65,7 @@ public class Meeting {
     }
 
     public interface Builder {
-        Builder id(Long value);
+        Builder id(String value);
         Builder add(Vote value);
         Meeting build();
     }

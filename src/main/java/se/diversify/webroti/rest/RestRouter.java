@@ -17,7 +17,7 @@ public class RestRouter  extends Application {
     public Set<Class<?>> getClasses() {
         Set<Class<?>> classes = new HashSet<Class<?>>();
         classes.add(HelloWorld.class);
-        classes.add(MeetingReserouce.class);
+        classes.add(MeetingResource.class);
 
         return classes;
     }

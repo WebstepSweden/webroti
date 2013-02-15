@@ -4,6 +4,7 @@ package se.diversify.webroti;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import se.diversify.webroti.rest.HelloWorld;
 
 /**
  * @author Daniel Valfridsson (daniel@valfridsson.net)
