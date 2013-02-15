@@ -2,6 +2,7 @@ package se.diversify.webroti.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -15,8 +16,8 @@ public class Meeting {
     /**
      * Create a new meeting
      */
-    public Meeting() {
-        id = UUID.randomUUID().toString();
+    public Meeting(String id) {
+        this.id = id;
     }
 
     /**

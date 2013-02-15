@@ -20,7 +20,7 @@ public class Repository {
      * @return a new meeting
      */
     public static Meeting createMeeting() {
-        Meeting meeting = new Meeting();
+        Meeting meeting = new Meeting(getNextNumber());
         meetings.put(meeting.getId(), meeting);
         return meeting;
     }
@@ -35,5 +35,16 @@ public class Repository {
             throw new IllegalArgumentException("Meeting with id " + id + " can not be found");
         }
         return meetings.get(id);
+    }
+
+    private synchronized static String getNextNumber() {
+        String toReturn;
+        String number = String.valueOf(Math.round(Math.random() * 89999) + 10000);
+        if(meetings.containsKey(number)) {
+           toReturn = getNextNumber();
+        } else {
+            toReturn = number;
+        }
+        return toReturn;
     }
 }
