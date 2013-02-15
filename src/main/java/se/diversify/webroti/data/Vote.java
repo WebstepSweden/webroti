@@ -6,7 +6,7 @@ package se.diversify.webroti.data;
  */
 public class Vote {
 
-    private double value;
+    private final double value;
 
     /**
      * Create a new vote given a value

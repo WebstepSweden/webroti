@@ -2,6 +2,7 @@ package se.diversify.webroti.data;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * A Repository of meetings
@@ -12,7 +13,7 @@ public class Repository {
         // Singleton - don't instantiate me please
     }
 
-    private static Map<String, Meeting> meetings = new HashMap<String, Meeting>();
+    private static Map<String, Meeting> meetings = new ConcurrentHashMap<String, Meeting>();
 
     /**
      * Create a new meeting
