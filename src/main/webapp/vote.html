@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="js/libs/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
 <!--[if lt IE 7]>
@@ -31,11 +31,11 @@
 
 <div class="container">
     <div class="row">
-        <div class="span6 offset3">
+        <div class="span8 offset2">
             <div class="well">
-                <h1>Vote</h1>
+                <h1 class="text-center">Vote</h1>
 
-                <p>
+                <p style="padding: 3em;">
                     <input type="range" min="1" max="5" step="0.1" class="full-width block"/>
                 </p>
                 <p class="vote-value">
@@ -43,19 +43,20 @@
                 <p>
                     <a class="btn btn-large btn-block btn-success vote-button" href="#"> Vote </a>
                     <br>
-                    <ul>
-                        <li>5 - This meeting was worth more than the time spent on it, I could not have used this time
+                    <ol>
+                        <li>This meeting was worth more than the time spent on it, I could not have used this time
                             better
                         </li>
-                        <li>4 -</li>
-                        <li>3 - Break even, my gain is equal to the time spent</li>
-                        <li>2 -</li>
-                        <li>1 - A complete waste of time</li>
-                    </ul>
+                        <li></li>
+                        <li>Break even, my gain is equal to the time spent</li>
+                        <li></li>
+                        <li>A complete waste of time</li>
+                    </ol>
                 </p>
                 <p>
                     <a class="back-to-meeting" href="meeting.html">Back to meeting vote results</a>
                 </p>
+                <p class="pull-right powered-by credits"><a href="http://www.diversify.se">Powered by Diversify</a></p>
             </div>
         </div>
     </div>
