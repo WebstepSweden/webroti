@@ -10,11 +10,11 @@ import java.util.List;
 public class MeetingVO {
     private final String id;
     private final List<VoteVO> votes;
-    private Double average;
+    private final String  average;
 
     private MeetingVO(BuilderImp builder) {
         this.id = builder.id;
-        this.average = builder.getAverage();
+        this.average = String.valueOf(builder.getAverage());
         this.votes = builder.votes;
     }
 
@@ -26,7 +26,7 @@ public class MeetingVO {
         return votes;
     }
 
-    public Double getAverage() {
+    public String getAverage() {
         return average;
     }
 
@@ -64,7 +64,9 @@ public class MeetingVO {
             for(VoteVO vote : votes){
                 sum += vote.getValue();
             }
-            return sum / votes.size();
+
+
+            return votes.size() == 0 ? 0.0 : sum / votes.size();
         }
 
 
