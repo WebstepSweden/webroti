@@ -1,11 +1,28 @@
 (function($){
     var CONFIRMATION_DELAY = 3000; //ms
 
+    $('.create-meeting').on('click', function(e){
+        e.preventDefault();
+        $(this).addClass("disabled");
+        $.ajax({
+            url:"/rest/meeting/create",
+            type:"POST",
+            contentType: "application/json",
+            data: JSON.stringify({
+                "operation": "createMeeting"
+            }),
+            success: function(data, textStatus, jqXHR) {
+                //console.log("Post response:"); console.dir(data); console.log(textStatus); console.dir(jqXHR);
+                if(data && data.id){
+                    window.location = 'meeting.html#' + data.id;
+                }
+            }});
+    });
 
     var meetingId = window.location.hash;
     $('.meeting-id').html(meetingId);
 
-    var voteUrl = 'vote.html' + meetingId;
+    var voteUrl = 'http://' + window.location.host + '/vote.html' + meetingId;
     $('.vote-link').prop('href', voteUrl);
     $('.vote-url').html(voteUrl);
 
