@@ -25,6 +25,8 @@
         e.preventDefault();
 
         $('.confirmation').modal();
+        sliderElm.get(0).value = 3;
+        sliderElm.trigger('change');
 
         setTimeout(function(){
             $('.confirmation').modal('hide');
