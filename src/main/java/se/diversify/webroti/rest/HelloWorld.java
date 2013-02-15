@@ -1,4 +1,4 @@
-package se.diversify.webroti;
+package se.diversify.webroti.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
