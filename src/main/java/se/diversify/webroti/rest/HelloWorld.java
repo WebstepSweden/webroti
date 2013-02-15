@@ -15,7 +15,7 @@ import javax.ws.rs.Produces;
 @Path("/helloworld")
 public class HelloWorld {
     
-    private final String name = "Hello World";
+    private final String name = "Hello World 2";
     
     public HelloWorld() {
     }
