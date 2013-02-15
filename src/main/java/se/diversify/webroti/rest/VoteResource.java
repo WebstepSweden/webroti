@@ -27,7 +27,7 @@ public class VoteResource {
 			AddVoteVO vo = new Gson().fromJson(addVoteStr, AddVoteVO.class);
 			Meeting meet = Repository.getMeeting(vo.getMeetingId());
 			// Add vote to this meeting
-			meet.getVotes().add(new Vote(vo.getValue()));
+			meet.addVote(new Vote(vo.getVote()));
 			return Response.ok().build();
 		}
 		catch( Exception e ){
