@@ -5,24 +5,24 @@ package se.diversify.webroti.rest.vo;
  * @version 1.0
  */
 public class AddVoteVO {
-    private Double value;
+    private Double vote;
     private String meetingId;
     
-	public AddVoteVO(Double value, String meetingId){
-        this.value = value;
+	public AddVoteVO(Double vote, String meetingId){
+        this.vote = vote;
         this.meetingId = meetingId;
     }
 
-    public void setValue(Double value) {
-		this.value = value;
+    public void setVote(Double vote) {
+		this.vote = vote;
 	}
 
 	public void setMeetingId(String meetingId) {
 		this.meetingId = meetingId;
 	}
 
-    public Double getValue() {
-        return value;
+    public Double getVote() {
+        return vote;
     }
 
     public String getMeetingId() {
