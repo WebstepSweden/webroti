@@ -19,6 +19,6 @@ public class MeetingResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getMeeting() {
-       return new Gson().toJson(Meeting.getBuilder().id("10").add(new Vote(10.0)).build());
+       return new Gson().toJson(Meeting.getBuilder().id("10").add(new Vote(10.0, "10")).build());
     }
 }

@@ -6,12 +6,18 @@ package se.diversify.webroti.rest.vo;
  */
 public class Vote {
     private final Double value;
-
-    public Vote(Double value){
+    private final String meetingId;
+    
+    public Vote(Double value, String meetingId){
         this.value = value;
+        this.meetingId = meetingId;
     }
 
     public Double getValue() {
         return value;
+    }
+
+    public String getMeetingId() {
+    	return meetingId;
     }
 }
