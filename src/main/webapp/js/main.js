@@ -9,11 +9,17 @@
     $('.vote-link').prop('href', voteUrl);
     $('.vote-url').html(voteUrl);
 
-    $('.vote-value').text($('input[type="range"]').get(0).value);
+    var voteValueElm = $('.vote-value');
+    if(voteValueElm.length){
+        voteValueElm.text($('input[type="range"]').get(0).value);
+    }
 
-    $('input[type="range"]').on('change', function(e){
-        $('.vote-value').text(this.value);
-    });
+    var sliderElm = $('input[type="range"]');
+    if(sliderElm.length){
+        sliderElm.on('change', function(e){
+            $('.vote-value').text(this.value);
+        });
+    }
 
     $('.vote-button').on('click', function(e) {
         e.preventDefault();
