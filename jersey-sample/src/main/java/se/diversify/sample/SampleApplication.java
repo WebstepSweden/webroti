@@ -1,14 +1,14 @@
-package se.diversify.webroti.rest;
+package se.diversify.sample;
 
-import javax.ws.rs.core.Application;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.ws.rs.core.Application;
+
 /**
- * @author dvalfrid
- * @version 1.0
+ * @author Christer Sandberg, Diversify Stockholm.
  */
-public class RestRouter  extends Application {
+public class SampleApplication extends Application {
 
     /**
      * {@inheritDoc}
@@ -16,9 +16,9 @@ public class RestRouter  extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         Set<Class<?>> classes = new HashSet<Class<?>>();
-        classes.add(HelloWorld.class);
-        classes.add(MeetingResource.class);
+        classes.add(TimeResource.class);
 
         return classes;
     }
+
 }
