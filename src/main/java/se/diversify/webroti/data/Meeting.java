@@ -1,9 +1,9 @@
 package se.diversify.webroti.data;
 
+import se.diversify.webroti.time.SystemTime;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.UUID;
 
 /**
  * A meeting
@@ -11,13 +11,18 @@ import java.util.UUID;
 public class Meeting {
 
     private final String id;
-    private List<Vote> votes = new ArrayList<Vote>();
+    private final List<Vote> votes = new ArrayList<Vote>();
+    private Long lastTouched;
 
     /**
      * Create a new meeting
      */
     public Meeting(String id) {
         this.id = id;
+    }
+
+    public Long getLastTouched() {
+        return lastTouched;
     }
 
     /**
@@ -48,4 +53,8 @@ public class Meeting {
         }
     }
 
+    public Meeting touch() {
+        lastTouched = SystemTime.now();
+        return this;
+    }
 }

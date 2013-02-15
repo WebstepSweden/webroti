@@ -1,6 +1,5 @@
 package se.diversify.webroti.data;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -22,7 +21,7 @@ public class Repository {
     public static Meeting createMeeting() {
         Meeting meeting = new Meeting(getNextNumber());
         meetings.put(meeting.getId(), meeting);
-        return meeting;
+        return meeting.touch();
     }
 
     /**
@@ -34,7 +33,7 @@ public class Repository {
         if (!meetings.containsKey(id)) {
             throw new IllegalArgumentException("Meeting with id " + id + " can not be found");
         }
-        return meetings.get(id);
+        return meetings.get(id).touch();
     }
 
     private synchronized static String getNextNumber() {
