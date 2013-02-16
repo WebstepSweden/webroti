@@ -22,19 +22,19 @@ public class VoteResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response vote(String addVoteStr){
-		String errorMsg = "";
+		Response toReturn = null;
 		try {
 			AddVoteVO vo = new Gson().fromJson(addVoteStr, AddVoteVO.class);
 			Meeting meet = Repository.getMeeting(vo.getMeetingId());
 			// Add vote to this meeting
 			meet.addVote(new Vote(vo.getVote()));
-			return Response.ok().build();
+			toReturn = Response.ok().build();
 		}
 		catch( Exception e ){
 			// Kan kastas fran Repository
-			errorMsg  = e.getMessage();
+            Response.ok(e.getMessage()).build();
 		}
-		return Response.ok(errorMsg).build();  // TODO: Felmeddelande?
+		return toReturn;
 	}
 
 }

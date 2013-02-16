@@ -36,6 +36,11 @@ public class Repository {
         return meetings.get(id).touch();
     }
 
+    /**
+     * Generates a number and checks if its already used. If it's used try to generate a new number.
+     *
+     * @return unic number
+     */
     private synchronized static String getNextNumber() {
         String toReturn;
         String number = String.valueOf(Math.round(Math.random() * 89999) + 10000);
