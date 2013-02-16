@@ -30,7 +30,7 @@
     (if (nil? data) {:status 204} {:body data})))
 
 (defn- handle-update-meeting [id req]
-  (let [vote (read-body-as-int (:body req))]
+  (let [vote (read-body-as-double (:body req))]
     (if (nil? vote)
       {:status 400}
       (let [result (db/update-meeting meetings id vote)]
