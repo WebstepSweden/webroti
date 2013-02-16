@@ -1,5 +1,5 @@
 (function ($) {
-    var CONFIRMATION_DELAY = 3000; //ms
+    var CONFIRMATION_DELAY = 1500; //ms
 
     $('.create-meeting').on('click', function (e) {
         e.preventDefault();
