@@ -9,7 +9,7 @@ import java.util.List;
  * @version 1.0
  */
 public class MeetingVO {
-    private static DecimalFormat DF = new DecimalFormat("#.0");
+    private static DecimalFormat DF = new DecimalFormat("0.0");
 
     private final String id;
     private final List<VoteVO> votes;
