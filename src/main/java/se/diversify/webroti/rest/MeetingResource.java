@@ -43,8 +43,7 @@ public class MeetingResource {
 	public String createMeeting() {
 		Meeting meeting = Repository.createMeeting();
 		return new Gson().toJson(MeetingVO.getBuilder()
-                .id(meeting
-                .getId())
+                .id(meeting.getId())
 				.build());
 	}
 }
