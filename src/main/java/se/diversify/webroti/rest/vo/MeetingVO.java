@@ -1,5 +1,6 @@
 package se.diversify.webroti.rest.vo;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,13 +9,15 @@ import java.util.List;
  * @version 1.0
  */
 public class MeetingVO {
+    private static DecimalFormat DF = new DecimalFormat("#.0");
+
     private final String id;
     private final List<VoteVO> votes;
     private final String  average;
 
     private MeetingVO(BuilderImp builder) {
         this.id = builder.id;
-        this.average = String.valueOf(builder.getAverage());
+        this.average = builder.getAverage();
         this.votes = builder.votes;
     }
 
@@ -59,14 +62,13 @@ public class MeetingVO {
             return new MeetingVO(this);
         }
 
-        private Double getAverage() {
+        private String getAverage() {
             double sum = 0.0;
             for(VoteVO vote : votes){
                 sum += vote.getValue();
             }
 
-
-            return votes.size() == 0 ? 0.0 : sum / votes.size();
+            return DF.format(votes.size() == 0 ? 0.0 : sum / votes.size());
         }
 
 
