@@ -32,9 +32,8 @@ public class VoteResource {
 		}
 		catch( Exception e ){
 			// Kan kastas fran Repository
-            Response.ok(e.getMessage()).build();
+            toReturn = Response.ok(e.getMessage()).build();
 		}
 		return toReturn;
 	}
-
 }
