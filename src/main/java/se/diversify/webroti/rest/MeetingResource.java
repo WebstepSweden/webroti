@@ -42,7 +42,8 @@ public class MeetingResource {
 	@Path("/create")
 	public String createMeeting() {
 		Meeting meeting = Repository.createMeeting();
-		return new Gson().toJson(MeetingVO.getBuilder().id(meeting.getId())
+		return new Gson().toJson(MeetingVO.getBuilder()
+                .id(meeting.getId())
 				.build());
 	}
 }
