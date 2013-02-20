@@ -18,8 +18,11 @@ public class Repository {
      * Create a new meeting
      * @return a new meeting
      */
-    public static Meeting createMeeting() {
-        Meeting meeting = new Meeting(getNextNumber());
+    public static Meeting createMeeting(String name) {
+        Meeting meeting = Meeting.getBuilder()
+                .id(getNextNumber())
+                .name(name)
+                .build();
         meetings.put(meeting.getId(), meeting);
         return meeting.touch();
     }

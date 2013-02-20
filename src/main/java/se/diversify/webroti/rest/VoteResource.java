@@ -15,6 +15,9 @@ import se.diversify.webroti.data.Vote;
 import se.diversify.webroti.rest.vo.AddVoteVO;
 
 
+/**
+ * The purpose of the class is to provide REST services for a Vote
+ */
 @Path("vote")
 public class VoteResource {
 

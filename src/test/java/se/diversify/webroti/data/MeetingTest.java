@@ -13,7 +13,7 @@ public class MeetingTest {
 
     @Before
     public void before() {
-        testedObject = new Meeting("000");
+        testedObject = Meeting.getBuilder().id("000").build();
         testedObject.addVote(new Vote(1));
         testedObject.addVote(new Vote(5));
     }

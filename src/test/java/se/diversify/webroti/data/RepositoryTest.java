@@ -12,7 +12,7 @@ public class RepositoryTest {
 
     @Before
     public void before() {
-        testedObject = Repository.createMeeting();
+        testedObject = Repository.createMeeting("name");
     }
 
     @Test

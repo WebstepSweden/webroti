@@ -11,6 +11,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 /**
+ * The purpose of the class is to provide REST services for a meeting
+ *
  * @author dvalfrid
  * @version 1.0
  */
@@ -37,13 +39,14 @@ public class MeetingResource {
 	}
 
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.TEXT_PLAIN)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/create")
-	public String createMeeting() {
-		Meeting meeting = Repository.createMeeting();
+	public String createMeeting(@FormParam("name") String name) {
+		Meeting meeting = Repository.createMeeting(name);
 		return new Gson().toJson(MeetingVO.getBuilder()
                 .id(meeting.getId())
+                .name(meeting.getName())
 				.build());
 	}
 }

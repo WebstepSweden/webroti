@@ -5,18 +5,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * An immutable object that contains information about the meeting.
+ *
  * @author dvalfrid
  * @version 1.0
  */
 public class MeetingVO {
     private static DecimalFormat DF = new DecimalFormat("0.0");
-
+    /** Unique key for a meeting */
     private final String id;
+    /** Name of the meeting*/
+    private final String name;
+    /** All votes in the meeting*/
     private final List<VoteVO> votes;
+    /** Average votes points*/
     private final String  average;
 
     private MeetingVO(BuilderImp builder) {
         this.id = builder.id;
+        this.name = builder.name;
         this.average = builder.getAverage();
         this.votes = builder.votes;
     }
@@ -43,11 +50,18 @@ public class MeetingVO {
 
     private static class BuilderImp implements Builder {
         private String id;
+        private String name;
         private List<VoteVO> votes = new ArrayList<VoteVO>();
 
         @Override
         public Builder id(String value) {
             this.id = value;
+            return this;
+        }
+
+        @Override
+        public Builder name(String value) {
+            this.name = value;
             return this;
         }
 
@@ -76,6 +90,7 @@ public class MeetingVO {
 
     public interface Builder {
         Builder id(String value);
+        Builder name(String value);
         Builder add(VoteVO value);
         MeetingVO build();
     }

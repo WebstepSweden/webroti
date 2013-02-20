@@ -19,7 +19,7 @@ public class VoteResourceTest {
 
 	@Before
     public void before() {
-        meeting = Repository.createMeeting();
+        meeting = Repository.createMeeting("name");
     }
 
 	@Test
