@@ -39,7 +39,7 @@ public class MeetingResource {
 	}
 
 	@POST
-	@Consumes(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/create")
 	public String createMeeting(@FormParam("name") String name) {
