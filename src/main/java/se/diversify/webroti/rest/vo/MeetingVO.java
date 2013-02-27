@@ -1,6 +1,7 @@
 package se.diversify.webroti.rest.vo;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * @version 1.0
  */
 public class MeetingVO {
-    private static DecimalFormat DF = new DecimalFormat("0.0");
+
     /** Unique key for a meeting */
     private final String id;
     /** Name of the meeting*/
@@ -26,6 +27,10 @@ public class MeetingVO {
         this.name = builder.name;
         this.average = builder.getAverage();
         this.votes = builder.votes;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getId() {
@@ -49,9 +54,17 @@ public class MeetingVO {
     }
 
     private static class BuilderImp implements Builder {
+        private final DecimalFormatSymbols symbols;
+        private final DecimalFormat DF;
         private String id;
         private String name;
         private List<VoteVO> votes = new ArrayList<VoteVO>();
+
+        private BuilderImp(){
+            symbols = new DecimalFormatSymbols();
+            symbols.setDecimalSeparator('.');
+            DF = new DecimalFormat("0.0", symbols);
+        }
 
         @Override
         public Builder id(String value) {
