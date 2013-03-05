@@ -28,7 +28,9 @@ require(
             $('.vote-url').html(voteUrl);
 
             $('.qr-code').qrcode({
-                text: $('.vote-url').text()
+                text: $('.vote-url').text(),
+                width: 100,
+                height: 100
             });
         }
 
