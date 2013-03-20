@@ -14,11 +14,15 @@ public class MeetingVO {
     private final String id;
     private final List<VoteVO> votes;
     private final String  average;
+    private final String min;
+    private final String max;
 
     private MeetingVO(BuilderImp builder) {
         this.id = builder.id;
         this.average = builder.getAverage();
         this.votes = builder.votes;
+        this.min = builder.getMin();
+        this.max = builder.getMax();
     }
 
     public String getId() {
@@ -31,6 +35,14 @@ public class MeetingVO {
 
     public String getAverage() {
         return average;
+    }
+
+    public String getMin() {
+        return min;
+    }
+
+    public String getMax() {
+        return max;
     }
 
     public int getNumberOfVotes() {
@@ -68,10 +80,28 @@ public class MeetingVO {
                 sum += vote.getValue();
             }
 
-            return DF.format(votes.size() == 0 ? 0.0 : sum / votes.size());
+            return votes.size() == 0 ? "-" : DF.format(sum / votes.size());
         }
 
+        public String getMin() {
+            double min = 5.0;
 
+            for(VoteVO vote : votes){
+                min = Math.min(min, vote.getValue());
+            }
+
+            return votes.size() == 0 ? "" : DF.format(min);
+        }
+
+        public String getMax() {
+            double max = 0.0;
+
+            for(VoteVO vote : votes){
+                max = Math.max(max, vote.getValue());
+            }
+
+            return votes.size() == 0 ? "" : DF.format(max);
+        }
     }
 
     public interface Builder {

@@ -13,6 +13,7 @@ require(
                 }
                 if (voteData.average) {
                     $('.average-roti').text(voteData.average);
+                    $('.min-max-roti').text(voteData.min + '-' + voteData.max);
                 }
             } else {
                 $('.number-of-votes').text('0');
