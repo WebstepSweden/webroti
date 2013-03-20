@@ -3,7 +3,7 @@ require(
 
     function($) {
         //Function globals
-        CONFIRMATION_DELAY = 2000; //ms
+        CONFIRMATION_DELAY = 1200; //ms
 
         //Get meeting id from url hash
         var meetingId = window.location.hash;
@@ -41,10 +41,10 @@ require(
                 }),
                 success: function (data, textStatus, jqXHR) {
                     console.dir(data);
+                    sliderElm.get(0).value = 3;
+                    sliderElm.trigger('change');
                     setTimeout(function () {
                         $('.confirmation').modal('hide');
-                        sliderElm.get(0).value = 3;
-                        sliderElm.trigger('change');
                     }, CONFIRMATION_DELAY);
                 }});
 
